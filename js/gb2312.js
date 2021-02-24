@@ -7,7 +7,7 @@ function gene108(gene) {
         myhint();
 
         var divStr0 = '<div "id=';
-        var divStr1 = ' class="layui-col-md1" style="background:#ffffff color:#000" onMouseOver="this.style.background=\'#d2d2d2\'; this.style.color=\'#0062c4\'" onMouseOut="this.style.background=\'#ffffff\'; this.style.color=\'#000\'"><br/><br/><p style="FONT-SIZE: 22px">';
+        var divStr1 = ' class="layui-col-md1" style="background:#ffffff color:#000" onMouseOver="this.style.background=\'#ffffff\'; this.style.color=\'#0062c4\'" onMouseOut="this.style.background=\'#ffffff\'; this.style.color=\'#000\'"><br/><br/><p style="FONT-SIZE: 22px">';
         var divStr2 = '</p><br/><br/>';
 
         var divStr22 = '<input type="checkbox" style="zoom:150%" name="fbox" onclick="myalert(1)" id="myBox';
@@ -16,16 +16,27 @@ function gene108(gene) {
 
         //var obj = ["wo", "ni", "ta", "我", "你", "他", "和"];
         var obj = mylib();
+        //debugger;
+        var iH = '';
+        var iHHH = '';
 
         for (let keyto in obj) {
 
             var keytoID = 0;
             keytoID = Number(keyto) + 1
 
-            var iH = document.getElementById('z001').innerHTML;
-            iH += divStr0 + (String(keytoID).trim()) + divStr1 + obj[keyto] + divStr2 + divStr22 + (String(keytoID).trim()) + divStr24;
-            document.getElementById('z001').innerHTML = iH;
+            //var iH = document.getElementById('z001').innerHTML;
+            iH = divStr0 + (String(keytoID).trim()) + divStr1 + obj[keyto] + divStr2 + divStr22 + (String(keytoID).trim()) + divStr24;
+            //document.getElementById('z001').innerHTML = iH;
+            iHHH = iHHH + iH;
         }
+        //console.log(iHHH);
+        //iH = document.getElementById('z001').innerHTML;
+        // debugger;
+
+        // myBott = '<br/><br/><br/> <div class="layui-row layui-col-space20" align="center"><div class="layui-col-md12"><br/><h2>汉字 - 识字数量统计</h2></div></div>'
+        myBott = '';
+        document.getElementById('z001').innerHTML = iHHH + myBott;
 
 
     } else {
