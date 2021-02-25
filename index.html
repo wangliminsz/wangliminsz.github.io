@@ -14,7 +14,21 @@
     <script src="./js/gb2312.js"></script>
     <script src="./js/gb2312-lib.js"></script>
 
-    <title>Document</title>
+    <title>汉字 - 识字数量统计</title>
+
+    <script type="text/javascript">
+        function browserRedirect() {
+            var sUserAgent = navigator.userAgent.toLowerCase();
+            if (/ipad|iphone|midp|rv:1.2.3.4|ucweb|android|windows ce|windows mobile/.test(sUserAgent)) {
+                //跳转移动端页面
+                window.location.href = "./m-index.html";
+            } else {
+                //跳转pc端页面
+                //window.location.href="./index.html";
+            }
+        }
+        browserRedirect();
+    </script>
 
     <style>
         #page {
