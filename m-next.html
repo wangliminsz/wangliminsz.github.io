@@ -58,11 +58,11 @@
     <div id="content" style="text-align: left; font-family: PMingLiU;">
         <br>
 
-        <div id="mobileHint" style="position:fixed; width:100%; height:2%; vertical-align:top; color:blue; background:lightgrey; text-align:right; padding:15px; top:0px; right:0px">这里是提示区<br/>
-            <br/></div>
-        <hr/><br/>
+        <div id="mobileHint"></div>
+        <!-- <div id="mobileHint" style="position:fixed; width:100%; height:2%; vertical-align:top; color:blue; background:lightgrey; text-align:right; padding:15px; top:0px; right:0px"><br/><br/></div>
+        <hr/> -->
         <div>
-            <div id="mz001">汉字区域</div>
+            <div id="mz001"></div>
         </div>
     </div>
 
@@ -90,6 +90,12 @@
             var thebox = document.getElementsByName("fbox");
             // var thechoosebox = document.getElementById("mbBox")
 
+
+            var hintHtml00 = '<div id="mobileHint" style="position:fixed; width:100%; height:2%; vertical-align:top; color:green; background:lightgrey; text-align:right; padding:15px; top:0px; right:0px">'
+            var hintHtml01 = '<div id="mobileHint" style="position:fixed; width:100%; height:2%; vertical-align:top; color:red; background:lightgrey; text-align:right; padding:15px; top:0px; right:0px">'
+            var hintHtml99 = '<br/><br/></div>'
+
+
             var thechoosebox = getQueryVariable("id");
             var boxResult = 0;;
             if (thebox) {
@@ -106,7 +112,9 @@
 
                     if (args == 1) {
 
-                        document.getElementById("mobileHint").innerHTML = "<div class=\"divmbcssred\"><h5>不认识的字: " + boxResult + "</h5><br/><br/><br/></div>";
+                        //document.getElementById("mobileHint").innerHTML = "<div class=\"divmbcssred\"><h5>不认识的字: " + boxResult + "</h5><br/><br/><br/></div>";
+                        document.getElementById("mobileHint").innerHTML = hintHtml01 + "不认识的字: " + boxResult + hintHtml99;
+
                     }
                 } else {
 
@@ -119,7 +127,8 @@
                         }
                     }
                     if (args == 1) {
-                        document.getElementById("mobileHint").innerHTML = "<div class=\"divmbcssgreen\"><h5>认识的字: " + boxResult + "</h5><br/><br/><br/></div>";
+                        //document.getElementById("mobileHint").innerHTML = "<div class=\"divmbcssgreen\"><h5>认识的字: " + boxResult + "</h5><br/><br/><br/></div>";
+                        document.getElementById("mobileHint").innerHTML = hintHtml00 + "认识的字: " + boxResult + hintHtml99;
                     }
 
                 }
