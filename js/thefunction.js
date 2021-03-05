@@ -2,6 +2,24 @@ function mgene108(gene) {
 
     if (gene == 1) {
         document.getElementById('mz001').innerHTML = '';
+        document.getElementById('mobileHint').innerHTML = '';
+
+        var thechoosebox = getQueryVariable("id");
+        //debugger;
+
+        var hintHtml00 = '<div id="mobileHint" style="position:fixed; width:100%; height:2%; vertical-align:top; color:green; background:lightgrey; text-align:right; padding:15px; top:0px; right:0px">请勾选认识的字<br/><br/></div>'
+        var hintHtml01 = '<div id="mobileHint" style="position:fixed; width:100%; height:2%; vertical-align:top; color:red; background:lightgrey; text-align:right; padding:15px; top:0px; right:0px">请勾选不认识的字<br/><br/></div>'
+
+        if (thechoosebox == 1) { //1 -- 不认识模式， 0 -- 认识模式
+            document.getElementById('mobileHint').innerHTML = hintHtml01;
+
+        } else {
+
+            document.getElementById('mobileHint').innerHTML = hintHtml00;
+
+
+        }
+
         //document.getElementById('rightpane').innerHTML = '<div class="divcss5"><h3>这里是提示和说明区</h3><br/><br/><br/></div>';
 
         //myhint();
