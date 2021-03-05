@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="./layer-v3.2.0/layer/layer.js"></script>
+    <script src="./layui/layui/layui.js"></script>
+    <link rel="stylesheet" href="./layui/layui/css/layui.css">
+
+    <link rel="stylesheet" href="./css/mobilecss.css">
+
+    <script src="./js/gb2312.js"></script>
+    <script src="./js/gb2312-lib.js"></script>
+    <script src="./js/thefunction.js"></script>
+
+
+    <title>汉字 - 识字数量统计</title>
+
+    <style>
+        body {
+            zoom: 1.75;
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            align-items: flex-end;
+            justify-content: left;
+            padding: 15%;
+            /*background-image: url("./prompt.jpg");
+                background-size: cover;*/
+        }
+        
+        .mobile-style {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .content {
+            position: absolute;
+            top: 50%;
+            left: 0%;
+            transform: translate(-80%, -80%);
+            text-align: center;
+            box-shadow: 0 0 10px black;
+            font-family: Helvetica, 'Hiragino Sans GB', 'Microsoft Yahei', '微软雅黑', Arial, sans-serif;
+        }
+    </style>
+
+</head>
+
+<body onload="mgene108(1)">
+    <!-- <div id="content">
+            <img class="mobile-style" src="./css/prompt.jpg" alt="">
+        </div> -->
+
+    <div id="content" style="text-align: left; font-family: PMingLiU;">
+        <br>
+
+        <div id="mobileHint" style="position:fixed; width:100%; height:1%; vertical-align:middle; background:lightgrey; text-align:right; padding:15px; top:0px; right:0px">这里是提示区</div>
+
+        <div>
+            <div id="mz001">汉字区域</div>
+        </div>
+    </div>
+
+    <script>
+        function getinfoURL() {
+            var boxID = getQueryVariable("id");
+            var boxNumber = mobileAlert(boxID);;
+            document.getElementById("infoUrl").href = "m-info.html?id=" + boxID + "&num=" + boxNumber;
+        }
+
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i = 0; i < vars.length; i++) {
+                var pair = vars[i].split("=");
+                if (pair[0] == variable) {
+                    return pair[1];
+                }
+            }
+            return (false);
+        }
+
+        function mobileAlert(args) { //1 为改文字；0 为不改文字
+
+            var thebox = document.getElementsByName("fbox");
+            // var thechoosebox = document.getElementById("mbBox")
+
+            var thechoosebox = getQueryVariable("id");
+            var boxResult = 0;;
+            if (thebox) {
+
+                if (thechoosebox == 1) {
+                    for (i = 0; i < thebox.length; i++) {
+
+                        if (thebox[i].checked) {
+
+                            boxResult++;
+
+                        }
+                    }
+
+                    if (args == 1) {
+
+                        document.getElementById("mobileHint").innerHTML = "<div class=\"divmbcssred\"><h5>不认识的字: " + boxResult + "</h5><br/><br/><br/></div>";
+                    }
+                } else {
+
+                    for (i = 0; i < thebox.length; i++) {
+
+                        if (thebox[i].checked) {
+
+                            boxResult++;
+
+                        }
+                    }
+                    if (args == 1) {
+                        document.getElementById("mobileHint").innerHTML = "<div class=\"divmbcssgreen\"><h5>认识的字: " + boxResult + "</h5><br/><br/><br/></div>";
+                    }
+
+                }
+
+                return boxResult;
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -14,6 +14,7 @@
     <script src="./js/gb2312.js"></script>
     <script src="./js/gb2312-lib.js"></script>
 
+
     <title>汉字 - 识字数量统计</title>
 
     <script type="text/javascript">
@@ -82,7 +83,7 @@
         }
     </style>
 
-    <script>
+    <!-- <script>
         var _hmt = _hmt || [];
         (function() {
             var hm = document.createElement("script");
@@ -90,7 +91,7 @@
             var s = document.getElementsByTagName("script")[0];
             s.parentNode.insertBefore(hm, s);
         })();
-    </script>
+    </script> -->
 
 </head>
 
@@ -121,7 +122,7 @@
 
                     <input type="checkbox" onclick="myhint()" id="cbox" name="choosebox" style="zoom:150%; vertical-align:middle;">
 
-                    <label id="boxhint" for="cbox" style="vertical-align:middle; color:blue">选字模式切换 (认识的字较多，可选此项)</label>
+                    <label id="boxhint" for="cbox" style="vertical-align:middle; color:blue">选字模式切换</label>
 
 
                 </div>
@@ -185,12 +186,9 @@
 
         <div id="footer" align="center">
 
-
-
             <!--a href="http://www.amazingcounters.com"><img border="0" src="http://cc.amazingcounters.com/counter.php?i=3246238&c=9739027" alt="AmazingCounters.com"></a-->
 
         </div>
-
 
     </div>
 
@@ -201,8 +199,7 @@
             var thechoosebox = document.getElementById("cbox")
             var boxResult = 0;
 
-            if (thebox) {
-                //debugger;
+            if (thebox) {;
 
 
 
@@ -253,7 +250,6 @@
                 myHint = 1;
                 document.getElementById("hintpane").innerHTML = "<h4>请勾选不认识的字：</h4>";
 
-
                 //document.getElementById("boxhint").innerHTML = "勾选不认识的汉字"
 
             } else {
@@ -262,12 +258,15 @@
                 document.getElementById("hintpane").innerHTML = "<h4>请勾选认识的字：</h4>";
                 //document.getElementById("boxhint").innerHTML = "勾选认识的汉字 &nbsp&nbsp&nbsp"
 
+
             }
 
             return myHint;
 
         }
     </script>
+
+
 
 </body>
 

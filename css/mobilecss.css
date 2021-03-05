@@ -1,0 +1,22 @@
+.divmbcssgreen {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #0062c4 vertical: middle;
+    vertical-align: middle;
+    color: green;
+}
+
+.divmbcssred {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #0062c4 vertical: middle;
+    vertical-align: middle;
+    color: red;
+}
+
+.divcssmb {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #0062c4 vertical: middle;
+    vertical-align: middle;
+}

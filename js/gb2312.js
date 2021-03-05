@@ -15,8 +15,7 @@ function gene108(gene) {
         var divStr24 = '"><br/><br/></div>';
 
         //var obj = ["wo", "ni", "ta", "我", "你", "他", "和"];
-        var obj = mylib();
-        //debugger;
+        var obj = mylib();;
         var iH = '';
         var iHHH = '';
 
@@ -68,11 +67,11 @@ function myexplain() {
 
             finalAmount = parseInt(finalCal * 6763 / 100);
 
-            finalStat = 1.96 * Math.sqrt(6672 / 6673) * Math.sqrt(((finalCal / 100) * (1 - (finalCal / 100))) / 100);
+            finalStat = 1.96 * Math.sqrt(6762 / 6763) * Math.sqrt(((finalCal / 100) * (1 - (finalCal / 100))) / 100);
 
             finalPercent = Math.round(finalStat * 10000) / 100;
 
-            //debugger;
+            ;
 
             document.getElementById("rightpane").innerHTML = "<div class=\"divcss5\"><h3>小朋友，在这 100 个随机汉字取样中，你认识 " + finalCal + " 个字，估计你认识的汉字数量为：" + finalAmount + " (在 95% 置信区间下，边际误差为： " + finalPercent + "%)</h3><br/><br/></div>";
         } else
@@ -84,11 +83,11 @@ function myexplain() {
 
             finalAmount = parseInt(finalCal * 6763 / 100);
 
-            finalStat = 1.96 * Math.sqrt(6672 / 6673) * Math.sqrt(((finalCal / 100) * (1 - (finalCal / 100))) / 100);
+            finalStat = 1.96 * Math.sqrt(6762 / 6763) * Math.sqrt(((finalCal / 100) * (1 - (finalCal / 100))) / 100);
 
             finalPercent = Math.round(finalStat * 10000) / 100;
 
-            //debugger;
+            ;
 
             document.getElementById("rightpane").innerHTML = "<div class=\"divcss5\"><h3>小朋友，在这 100 个随机汉字取样中，你认识 " + finalCal + " 个字，估计你认识的汉字数量为：" + finalAmount + " (在 95% 置信区间下，边际误差为： " + finalPercent + "%)</h3><br/><br/></div>";
 
