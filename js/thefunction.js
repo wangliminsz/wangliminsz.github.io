@@ -1,5 +1,12 @@
 function mgene108(gene) {
 
+    if (window.name != "refresh") {
+        location.reload();
+        window.name = "refresh";
+    } else {
+        window.name = "";
+    }
+
     if (gene == 1) {
         document.getElementById('mz001').innerHTML = '';
         document.getElementById('mobileHint').innerHTML = '';
