@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="./layer-v3.2.0/layer/layer.js"></script>
+    <script src="./layui/layui/layui.js"></script>
+    <link rel="stylesheet" href="./layui/layui/css/layui.css">
+
+    <script src="./js/gb2312.js"></script>
+    <script src="./js/gb2312-lib.js"></script>
+
+
+    <title>汉字 - 识字数量统计</title>
+
+
+
+    <style>
+        #page {
+            width: 100%;
+            height: 100%;
+        }
+        
+        #header {
+            width: 100%;
+            height: 350px;
+            position: absolute;
+            top: 0;
+            background-color: #fff;
+        }
+        
+        #content {
+            width: 100%;
+            overflow: scroll;
+            position: absolute;
+            top: 350px;
+            bottom: 0px;
+        }
+        
+        #footer {
+            width: 100%;
+            height: 40px;
+            position: absolute;
+            bottom: 0;
+            background-color: #fff;
+        }
+        
+        #leftpane {
+            color: #00164b;
+            padding: 20px 50px 20px 60px;
+        }
+        
+        #rightpane {
+            color: #00164b;
+            padding: 20px 100px 20px 10px;
+        }
+        
+        #hintpane {
+            color: #00164b;
+            padding: 20px 100px 20px 60px;
+        }
+        
+        .divcss5 {
+            width: 100%;
+            height: 100%;
+            border: 1px solid #0062c4
+        }
+    </style>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5817d640a2cfb295beca23ab6878ddf3";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+</head>
+
+<body onload="gene108(1)">
+
+    <div id="page">
+
+        <div id="header">
+
+            <div class="layui-row layui-col-space20" align="center">
+
+                <div class="layui-col-md12"><br/>
+                    <h2>汉字 - 识字数量统计
+                    </h2>
+                </div>
+
+            </div>
+            <div class="layui-row layui-col-space20" align="center">
+
+                <div class="layui-col-md12">
+
+                    <h3>统计学: 点估计的应用
+                    </h3><br/><br/>
+
+                    <button id="mybutton1" onclick="gene108(1)">产生 100 个随机汉字</button> &nbsp; &nbsp; &nbsp;
+                    <button id="mybutton2" onclick="gene108(0)">&nbsp&nbsp清&nbsp&nbsp空&nbsp&nbsp</button>&nbsp; &nbsp; &nbsp;
+                    <button id="mybutton3" onclick="myexplain()">测试结果说明</button>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+
+                    <input type="checkbox" onclick="myhint()" id="cbox" name="choosebox" style="zoom:150%; vertical-align:middle;">
+
+                    <label id="boxhint" for="cbox" style="vertical-align:middle; color:blue">选字模式切换</label>
+
+
+                </div>
+
+                <div id="leftpane" class="layui-col-md6" align="left">
+
+                    <h3>统计学原理：GB2312 国标字库中有 6763 个汉字；随机抽样选择 100 个汉字，其认识比率可以作为总体比率的点估计，对小朋友认识的汉字数量加以测算 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+                        <a href="https://baike.baidu.com/item/%E7%82%B9%E4%BC%B0%E8%AE%A1/10842926?fr=aladdin" target="_Blank" style="color:blue">
+                            <font style="font-size: 14px"><u><i>关于点估计</i></u></font>
+                        </a>
+                    </h3>
+                    <br/><br/><br/>
+
+                </div>
+
+                <div id="rightpane" class="layui-col-md6" align="left">
+
+                    <div class="divcss5">
+                        <h3>这里是提示和说明区</h3><br/><br/><br/>
+                    </div>
+
+                </div>
+
+
+            </div>
+            <hr>
+
+            <div class="layui-row layui-col-space20" align="left">
+
+                <div id="hintpane" class="layui-col-md12">
+
+                </div>
+
+            </div>
+        </div>
+
+        <br/><br/>
+
+        <div id="content">
+
+            <div class="layui-row layui-col-space20" align="center">
+
+                <div id="z001"></div>
+                <br/><br/><br/><br/>
+
+            </div>
+            <br/><br/><br/><br/>
+
+            <div class="layui-row layui-col-space20" align="center">
+
+                <div id="mycounter" class="layui-col-md12">
+
+                    <h4></h4><br/><br/>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <div id="footer" align="center">
+
+            <!--a href="http://www.amazingcounters.com"><img border="0" src="http://cc.amazingcounters.com/counter.php?i=3246238&c=9739027" alt="AmazingCounters.com"></a-->
+
+        </div>
+
+    </div>
+
+    <script>
+        function myalert(args) { //1 为改文字；0 为不改文字
+
+            var thebox = document.getElementsByName("fbox");
+            var thechoosebox = document.getElementById("cbox")
+            var boxResult = 0;
+
+            if (thebox) {;
+
+
+
+                if (thechoosebox.checked) {
+                    for (i = 0; i < thebox.length; i++) {
+
+                        if (thebox[i].checked) {
+
+                            boxResult++;
+
+                        }
+                    }
+
+                    if (args == 1) {
+
+                        document.getElementById("rightpane").innerHTML = "<div class=\"divcss5\"><h3>已经选中： " + boxResult + " 个不认识的字</h3><br/><br/><br/></div>";
+                    }
+                } else {
+
+                    for (i = 0; i < thebox.length; i++) {
+
+                        if (thebox[i].checked) {
+
+                            boxResult++;
+
+                        }
+                    }
+                    if (args == 1) {
+                        document.getElementById("rightpane").innerHTML = "<div class=\"divcss5\"><h3>已经选中： " + boxResult + " 个认识的字</h3><br/><br/><br/></div>";
+                    }
+
+
+                }
+
+                return boxResult;
+
+            } else {
+
+            }
+        }
+
+        function myhint() {
+
+            var thechoosebox = document.getElementById("cbox")
+
+            if (thechoosebox.checked) {
+
+                myHint = 1;
+                document.getElementById("hintpane").innerHTML = "<h4>请勾选不认识的字：</h4>";
+
+                //document.getElementById("boxhint").innerHTML = "勾选不认识的汉字"
+
+            } else {
+
+                myHint = 0;
+                document.getElementById("hintpane").innerHTML = "<h4>请勾选认识的字：</h4>";
+                //document.getElementById("boxhint").innerHTML = "勾选认识的汉字 &nbsp&nbsp&nbsp"
+
+
+            }
+
+            return myHint;
+
+        }
+    </script>
+
+
+
+</body>
+
+</html>
